@@ -127,19 +127,21 @@
 .hero__event-name {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 1.667rem;
+  font-size: clamp(1.125rem, 1.3vw, 1.667rem);
   line-height: 1.5;
   color: var(--color-primary-dark);
   text-align: center;
+  white-space: nowrap;
 }
 
 .hero__event-sub {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
-  font-size: 1.167rem;
+  font-size: clamp(0.875rem, 1vw, 1.167rem);
   line-height: 1.7;
   color: rgba(26 10 75 / 0.85);
   text-align: center;
+  white-space: nowrap;
 }
 
 .hero__event-divider {
@@ -153,7 +155,7 @@
 .hero__event-date-main {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 1.667rem;
+  font-size: clamp(1.125rem, 1.3vw, 1.667rem);
   line-height: 1.5;
   color: var(--color-primary-dark);
   white-space: nowrap;
@@ -163,7 +165,7 @@
 .hero__event-date-sub {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
-  font-size: 1.167rem;
+  font-size: clamp(0.875rem, 1vw, 1.167rem);
   line-height: 1.7;
   color: rgba(26 10 75 / 0.85);
   white-space: nowrap;
