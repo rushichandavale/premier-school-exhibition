@@ -1,0 +1,217 @@
+/* ==========================================================================
+   layout.css — Container, Grid & Shared Layout Utilities
+   Premier Schools Exhibition
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* --------------------------------------------------------------------------
+   Section Spacing
+   -------------------------------------------------------------------------- */
+.section {
+  padding-block: var(--space-20);
+}
+
+.section--sm {
+  padding-block: var(--space-12);
+}
+
+.section--flush {
+  padding-block: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section Header
+   -------------------------------------------------------------------------- */
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  background: var(--text-primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.section__subtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   Button Base
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background-color: var(--color-gold);
+  color: var(--color-primary-dark);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-gold-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+.btn--dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.btn--dark:hover {
+  background-color: var(--color-primary-purple);
+  box-shadow: var(--shadow-md);
+}
+
+.btn__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Slider Controls (shared)
+   -------------------------------------------------------------------------- */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.slider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  border: 2px solid currentColor;
+  color: var(--color-primary-dark);
+  background-color: var(--color-white);
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.slider-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  border-color: var(--color-primary-dark);
+  transform: scale(1.08);
+}
+
+.slider-btn--light {
+  color: var(--color-white);
+  background-color: rgba(255 255 255 / 0.12);
+  border-color: rgba(255 255 255 / 0.4);
+}
+
+.slider-btn--light:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  border-color: var(--color-white);
+}
+
+.slider-btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.slider-dots {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.slider-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-muted);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-base),
+              transform var(--transition-base);
+}
+
+.slider-dot--active,
+.slider-dot:hover {
+  background-color: var(--color-primary-purple);
+  transform: scale(1.4);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Helpers
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .section__title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-pad: var(--space-4);
+  }
+
+  .section {
+    padding-block: var(--space-10);
+  }
+}

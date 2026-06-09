@@ -1,0 +1,121 @@
+/* ==========================================================================
+   mobile-cta.css — Sticky bottom CTA bar (mobile only)
+   Premier Schools Exhibition
+   ========================================================================== */
+
+.mobile-cta-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Sticky CTA Bar */
+  .mobile-cta-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-nav, 999);
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100vw;
+    min-height: clamp(3.5rem, 13vw, 4.25rem);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.28);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    overflow: hidden;
+  }
+
+  /* Common styles */
+  .mobile-cta-bar__register,
+  .mobile-cta-bar__stat {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(0.35rem, 2vw, 0.7rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+  }
+
+  /* Left Section */
+  .mobile-cta-bar__register {
+    flex: 0 0 40%;
+    background: linear-gradient(90deg, #3F186A 0%, #000E38 100%);
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(0.75rem, 3vw, 1rem);
+    transition: filter 0.3s ease;
+  }
+
+  .mobile-cta-bar__register:active {
+    filter: brightness(1.15);
+  }
+
+  /* Right Section */
+  .mobile-cta-bar__stat {
+    flex: 0 0 60%;
+    background: linear-gradient(90deg,
+        #E9C79F 0%,
+        #FFCC81 50%,
+        #E9C79F 100%);
+    color: var(--color-primary-dark, #000E38);
+    gap: 2px;
+  }
+
+  .mobile-cta-bar__stat-num {
+    font-size: clamp(0.8rem, 3.4vw, 1rem);
+    font-weight: 800;
+    line-height: 1.1;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .mobile-cta-bar__stat-label {
+    font-size: clamp(0.65rem, 2.6vw, 0.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Prevent content from being hidden */
+  body {
+    padding-bottom: calc(clamp(3.5rem, 13vw, 4.25rem) + env(safe-area-inset-bottom, 0) + 0.75rem);
+  }
+
+  /* Hide inline hero form on mobile */
+  .hero__form-panel {
+    display: none;
+  }
+
+  .hero__form-panel.is-revealed {
+    display: block;
+  }
+}
+
+/* Extra-small devices (320px–360px) */
+@media (max-width: 360px) {
+
+  .mobile-cta-bar__register {
+    flex-basis: 42%;
+    font-size: 0.72rem;
+  }
+
+  .mobile-cta-bar__stat {
+    flex-basis: 58%;
+  }
+
+  .mobile-cta-bar__stat-num {
+    font-size: 0.75rem;
+  }
+
+  .mobile-cta-bar__stat-label {
+    font-size: 0.62rem;
+  }
+}

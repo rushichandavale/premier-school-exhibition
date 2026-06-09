@@ -1,0 +1,433 @@
+/* ==========================================================================
+   navbar.css — Site Navigation
+   Premier Schools Exhibition
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Base Navbar — Default (top of page, white background)
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0 0 0 / 0.08);
+  box-shadow: 0 2px 8px rgba(0 0 0 / 0.06);
+  transition: background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  /* visible so the oversized logo can float below the bar */
+  overflow: visible;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  height: 6.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Logo — floats below the bar; the box only reserves horizontal space
+   -------------------------------------------------------------------------- */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+  width: 200px;
+  transition: width var(--transition-base);
+}
+
+.navbar__logo-img {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 200px;
+  height: 160px;                        /* taller than the bar — overflows downward */
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  z-index: 20;
+  transition: all var(--transition-base);
+}
+
+/* Logo text (currently unused — kept for potential re-use) */
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.navbar__logo-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary-dark);
+  letter-spacing: 0.01em;
+}
+
+.navbar__logo-sub {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-purple);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Button — two-tone split chip: dark arrow chip + light text label.
+   On click/hover the dark underlay (::before) wipes across to fill it.
+   -------------------------------------------------------------------------- */
+.navbar__cta {
+  display: inline-flex;
+  align-items: stretch;
+  text-decoration: none;
+  overflow: hidden;
+  border: 2px solid var(--color-primary-dark);
+  transition: border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: 205px;
+  height: 60px;
+  border-radius: 8px;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+/* Wipe underlay — starts covering just the left chip, expands to full width */
+.navbar__cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  background-color: var(--color-primary-dark);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.navbar__cta-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  background-color: transparent;        /* background comes from the ::before underlay */
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar__cta-label {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  background-color: transparent;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  transition: color 0.6s ease;
+}
+
+.navbar__cta-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-white);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar__cta:hover {
+  box-shadow: 0 4px 12px rgba(26, 10, 75, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Click / active: underlay wipes full width, label turns white, arrow rotates */
+.navbar__cta.is-clicked::before,
+.navbar__cta:active::before {
+  width: 100%;
+}
+
+.navbar__cta.is-clicked .navbar__cta-label,
+.navbar__cta:active .navbar__cta-label {
+  color: var(--color-white);
+}
+
+.navbar__cta.is-clicked .navbar__cta-icon,
+.navbar__cta:active .navbar__cta-icon {
+  transform: rotate(45deg);
+}
+
+/* Submit variant — reversed colors for the dark form background */
+.navbar__cta--submit {
+  border-color: var(--color-white);
+  background-color: transparent;
+}
+
+.navbar__cta--submit::before {
+  background-color: var(--color-white);
+}
+
+.navbar__cta--submit .navbar__cta-icon {
+  color: var(--color-primary-dark);
+}
+
+.navbar__cta--submit .navbar__cta-label {
+  color: var(--color-white);
+  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.navbar__cta--submit.is-clicked .navbar__cta-label,
+.navbar__cta--submit:active .navbar__cta-label {
+  color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Hamburger (mobile)
+   -------------------------------------------------------------------------- */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-dark);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Open state: bars cross into an X */
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Nav Links
+   -------------------------------------------------------------------------- */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar__nav-link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(26 10 75 / 0.75);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-base);
+  position: relative;
+}
+
+.navbar__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.navbar__nav-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.navbar__nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   Scrolled State — dark navy navbar, shrunken logo, solid white CTA
+   -------------------------------------------------------------------------- */
+.navbar--scrolled {
+  background-color: #000E38;
+  border-bottom: 1px solid rgba(255 255 255 / 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.navbar--scrolled .navbar__logo {
+  width: 120px;
+}
+
+.navbar--scrolled .navbar__logo-img {
+  width: 120px;
+  height: 80px;
+  top: 12px;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.navbar--scrolled .navbar__toggle-bar {
+  background-color: var(--color-white);
+}
+
+.navbar--scrolled .navbar__cta {
+  border: none;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar--scrolled .navbar__cta::before {
+  width: 0;
+  background-color: #000E38;
+}
+
+.navbar--scrolled .navbar__cta-chip {
+  display: none;
+}
+
+.navbar--scrolled .navbar__cta-label {
+  background-color: transparent;
+  color: #000E38;
+  text-transform: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Right arrow appended via pseudo-element */
+.navbar--scrolled .navbar__cta-label::after {
+  content: " →";
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.navbar--scrolled .navbar__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+}
+
+.navbar--scrolled .navbar__cta:hover .navbar__cta-label {
+  color: #000E38;
+}
+
+.navbar--scrolled .navbar__cta:hover .navbar__cta-label::after {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Mobile Nav
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Shorter bar + smaller logo so it doesn't dwarf the phone view */
+  .navbar__inner {
+    height: 4.75rem;
+  }
+
+  .navbar__logo {
+    width: 120px;
+  }
+
+  .navbar__logo-img {
+    width: 120px;
+    height: 96px;                        /* keeps the 200:160 badge ratio */
+    top: 6px;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-top: 1px solid rgba(0 0 0 / 0.08);
+    padding: var(--space-4) var(--space-6);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    display: none;
+    box-shadow: 0 8px 16px rgba(0 0 0 / 0.08);
+  }
+
+  .navbar--scrolled .navbar__nav {
+    background-color: var(--color-primary-dark);
+    border-top: 1px solid rgba(255 255 255 / 0.1);
+  }
+
+  .navbar__nav--open {
+    display: flex;
+  }
+
+  .navbar__nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .navbar__nav-link {
+    font-size: var(--font-size-base);
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+}

@@ -1,0 +1,592 @@
+/* ==========================================================================
+   hero.css — Hero Section
+   Premier Schools Exhibition
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Container
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  background: var(--bg-hero);
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: stretch;
+}
+
+@media (min-width: 1101px) {
+  .hero {
+    max-height: 45rem;
+  }
+}
+
+/* Bottom wave/curve — mobile only */
+.hero__wave {
+  display: none;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  padding-block: var(--space-16) var(--space-12);
+  width: 100%;
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* Background decoration */
+.hero__bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: var(--z-below);
+}
+
+.hero__bg-glow--1 {
+  width: 600px;
+  height: 600px;
+  top: -120px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(75 47 160 / 0.55) 0%, transparent 65%);
+}
+
+.hero__bg-glow--2 {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: 2%;
+  background: radial-gradient(circle, rgba(245 200 66 / 0.1) 0%, transparent 65%);
+}
+
+/* --------------------------------------------------------------------------
+   Left Column — Text Content
+   -------------------------------------------------------------------------- */
+.hero__content {
+  grid-column: 1;
+  padding-left: var(--container-pad);
+}
+
+.hero__heading {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  background: linear-gradient(180deg, #FFCC81 0%, #E9C79F 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-3);
+}
+
+.hero__heading-white {
+  color: var(--color-white);
+}
+
+.hero__heading-gold {
+  background: linear-gradient(180deg, #FFCC81 0%, #E9C79F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__sub-heading {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: #FFCC81;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-8);
+}
+
+/* Event badge pill — venue + date in one capsule.
+   Double ring effect: border = outer ring, inset outline = inner ring. */
+.hero__event-badge {
+  display: inline-flex;
+  align-items: stretch;
+  background: linear-gradient(180deg, #FFCC81 0%, #E9C79F 100%);
+  border: 1.33px solid rgba(0, 0, 0, 0.13);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 0;
+  outline: 1.33px solid rgba(0, 0, 0, 0.13);
+  outline-offset: -4px;
+}
+
+.hero__event-venue,
+.hero__event-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-3) var(--space-5);
+  gap: var(--space-1);
+}
+
+.hero__event-name {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.667rem;
+  line-height: 1.5;
+  color: var(--color-primary-dark);
+  text-align: center;
+}
+
+.hero__event-sub {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.167rem;
+  line-height: 1.7;
+  color: rgba(26 10 75 / 0.85);
+  text-align: center;
+}
+
+.hero__event-divider {
+  width: 1px;
+  background-color: rgba(26 10 75 / 0.2);
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-block: var(--space-3);
+}
+
+.hero__event-date-main {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.667rem;
+  line-height: 1.5;
+  color: var(--color-primary-dark);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.hero__event-date-sub {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.167rem;
+  line-height: 1.7;
+  color: rgba(26 10 75 / 0.85);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Center Column — Infinite Vertical Scrolling Gallery
+   -------------------------------------------------------------------------- */
+.hero__scroll-gallery {
+  grid-column: 2;
+  display: flex;
+  gap: var(--space-3);
+  height: 88vh;
+  overflow: hidden;
+  align-items: flex-start;
+  /* Top and bottom fade masks */
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%);
+}
+
+@media (min-width: 1101px) {
+  .hero__scroll-gallery {
+    height: 38rem;
+  }
+}
+
+.hero__scroll-col {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 12.5rem;
+  overflow: hidden;
+}
+
+/* Columns 2 and 3 start offset upward for a staggered look */
+.hero__scroll-col--2 {
+  margin-top: -13.75rem;
+}
+
+.hero__scroll-col--3 {
+  margin-top: -6.875rem;
+}
+
+.hero__scroll-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   Vertical scroll keyframes — translate -50% pairs with the duplicated
+   image set in the markup to produce a seamless infinite loop.
+   -------------------------------------------------------------------------- */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollUpOffset {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollUpSlow {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.hero__scroll-track--up {
+  animation: scrollUp 22s linear infinite;
+}
+
+.hero__scroll-track--up-offset {
+  animation: scrollUpOffset 28s linear infinite;
+}
+
+.hero__scroll-track--up-slow {
+  animation: scrollUpSlow 25s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Individual image items
+   -------------------------------------------------------------------------- */
+.hero__scroll-item {
+  flex-shrink: 0;
+  width: 12.5rem;
+  height: 27.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255 255 255 / 0.15);
+  transition: transform var(--transition-slow);
+}
+
+.hero__scroll-item:hover {
+  transform: scale(1.04);
+}
+
+.hero__scroll-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column — Enquiry Form
+   -------------------------------------------------------------------------- */
+.hero__form-panel {
+  grid-column: 3;
+  padding-right: var(--container-pad);
+  max-width: 26rem;
+  width: 100%;
+  justify-self: end;
+}
+
+.hero__form-card {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(6, 21, 50, 0.2) 100%);
+  border: 1.5px solid rgba(255 255 255 / 0.15);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 2rem;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  min-height: 27.2rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  justify-content: space-around;
+}
+
+.hero__form-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.enquiry-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.enquiry-form__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255 255 255 / 1);
+  letter-spacing: 0.04em;
+}
+
+.enquiry-form__input {
+  width: 100%;
+  height: 3.125rem;
+  padding: 0 1rem;
+  background-color: rgba(255 255 255 / 0.1);
+  border: 1px solid rgba(255 255 255 / 0.18);
+  border-radius: 8px;
+  color: var(--color-white);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  box-sizing: border-box;
+  transition: border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.enquiry-form__input::placeholder {
+  color: rgba(255 255 255 / 0.90);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.enquiry-form__input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background-color: rgba(255 255 255 / 0.15);
+}
+
+.enquiry-form__textarea {
+  height: 5rem;
+  padding-block: 0.75rem;
+  resize: vertical;
+}
+
+.enquiry-form__submit-wrap {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-track {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-6);
+  }
+
+  .hero__content {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 100%;
+  }
+
+  .hero__form-panel {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 100%;
+    padding-right: var(--container-pad);
+    justify-self: stretch;
+  }
+
+  .hero__scroll-gallery {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 40vh;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 4.5rem;
+    /* overflow visible so the event pill can float onto the white area below */
+    overflow: visible;
+  }
+
+  .hero__wave {
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    line-height: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero__wave svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding-block: var(--space-8) 0;
+    gap: var(--space-8);
+    position: relative;
+    z-index: 2;                          /* above the bottom curve (z-index: 1) */
+  }
+
+  /* Mobile stacking order (matches Figma): images → heading/pill → form */
+  .hero__scroll-gallery {
+    grid-column: 1;
+    grid-row: 1;
+    height: 16rem;
+    justify-content: center;
+    gap: var(--space-3);
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%, black 18%, black 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom,
+        transparent 0%, black 18%, black 82%, transparent 100%);
+  }
+
+  .hero__content {
+    grid-column: 1;
+    grid-row: 2;
+    padding-left: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero__form-panel {
+    grid-column: 1;
+    grid-row: 3;
+    padding-right: 0;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  /* Symmetric stagger — middle capsule highest, outer two ~50px lower (Figma) */
+  .hero__scroll-col--1,
+  .hero__scroll-col--3 {
+    margin-top: 3.125rem;
+  }
+
+  .hero__scroll-col--2 {
+    margin-top: 0;
+  }
+
+  /* Fluid capsule keeps the Figma 138:221 ratio and fits 3 across any phone */
+  .hero__scroll-col,
+  .hero__scroll-item {
+    width: clamp(5.5rem, 28vw, 8.625rem);
+  }
+
+  .hero__scroll-item {
+    height: auto;
+    aspect-ratio: 138 / 221;
+  }
+
+  .hero__heading {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero__sub-heading {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-6);
+  }
+
+  /* Float the pill onto the white area below the bottom curve */
+  .hero__event-badge {
+    position: absolute;
+    bottom: -140px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    margin: 0;
+    width: max-content;
+    max-width: 92vw;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero__event-venue,
+  .hero__event-date {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .hero__event-name,
+  .hero__event-date-main {
+    font-size: 1.25rem;
+  }
+
+  .hero__event-sub,
+  .hero__event-date-sub {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Capsule size is handled by clamp() above — only tighten the pill here */
+  .hero__event-venue,
+  .hero__event-date {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .hero__event-name,
+  .hero__event-date-main {
+    font-size: 1.0625rem;
+    white-space: nowrap;
+  }
+
+  .hero__event-sub,
+  .hero__event-date-sub {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero__heading {
+    font-size: 1.375rem;
+  }
+
+  .hero__event-name,
+  .hero__event-date-main {
+    font-size: 0.9375rem;
+  }
+
+  .hero__event-sub,
+  .hero__event-date-sub {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,160 @@
+/* ==========================================================================
+   schools-marquee.css — Participating Schools Logo Marquee
+   Continuous "sling" animation with alternating left/right flow.
+   Pauses on hover and keyboard focus. Honors prefers-reduced-motion.
+   Premier Schools Exhibition
+   ========================================================================== */
+
+.schools-marquee {
+  background-color: var(--color-white);
+  padding-block: var(--space-12);
+}
+
+.schools-marquee__title {
+  font-family: 'Archivo', sans-serif;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: 0;
+  background: var(--text-primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   Scroller — clips the overflowing tracks and applies edge fade masks
+   -------------------------------------------------------------------------- */
+.schools-marquee__scroller {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow: hidden;
+  /* Soft fade on both horizontal edges */
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right,
+      transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.schools-marquee__scroller:focus-visible {
+  outline: 2px solid var(--color-primary-purple);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Rows + animated tracks
+   Each track holds the logo set twice; translateX(-50%) loops seamlessly.
+   -------------------------------------------------------------------------- */
+.schools-marquee__row {
+  overflow: hidden;
+}
+
+.schools-marquee__track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-4);
+  width: max-content;
+  will-change: transform;
+}
+
+.schools-marquee__track--left {
+  animation: schools-sling-left 40s linear infinite;
+}
+
+.schools-marquee__track--right {
+  animation: schools-sling-right 40s linear infinite;
+}
+
+/* Pause both rows when the user hovers or focuses anywhere in the scroller */
+.schools-marquee__scroller:hover .schools-marquee__track,
+.schools-marquee__scroller:focus-within .schools-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes schools-sling-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes schools-sling-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* --------------------------------------------------------------------------
+   Logo cards
+   -------------------------------------------------------------------------- */
+.schools-marquee__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid #E8E7E7;
+  height: 7.375rem;
+  transition: box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.schools-marquee__item:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-3px);
+}
+
+.schools-marquee__logo {
+  width: 12.5625rem;
+  height: 5.375rem;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter var(--transition-base);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.schools-marquee__item:hover .schools-marquee__logo {
+  filter: grayscale(0%);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — smaller logo cards on phones (animation logic is unchanged)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .schools-marquee__track {
+    gap: var(--space-3);
+  }
+
+  .schools-marquee__item {
+    height: 6rem;
+    padding: var(--space-2);
+  }
+
+  .schools-marquee__logo {
+    width: clamp(8rem, 34vw, 11rem);
+    height: 4.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion — stop the sling, show the first (announced) logo set
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .schools-marquee__track {
+    animation: none;
+    transform: none;
+  }
+
+  /* Allow the static row to scroll manually instead */
+  .schools-marquee__row {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .schools-marquee__row::-webkit-scrollbar {
+    display: none;
+  }
+}
