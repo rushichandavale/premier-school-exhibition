@@ -21,7 +21,6 @@
   }
 }
 
-/* Bottom wave/curve — mobile only */
 .hero__wave {
   display: none;
 }
@@ -37,7 +36,6 @@
   z-index: var(--z-base);
 }
 
-/* Background decoration */
 .hero__bg-glow {
   position: absolute;
   border-radius: 50%;
@@ -102,8 +100,6 @@
   margin-bottom: var(--space-8);
 }
 
-/* Event badge pill — venue + date in one capsule.
-   Double ring effect: border = outer ring, inset outline = inner ring. */
 .hero__event-badge {
   display: inline-flex;
   align-items: stretch;
@@ -182,7 +178,6 @@
   height: 88vh;
   overflow: hidden;
   align-items: flex-start;
-  /* Top and bottom fade masks */
   -webkit-mask-image: linear-gradient(to bottom,
       transparent 0%,
       black 12%,
@@ -209,7 +204,6 @@
   overflow: hidden;
 }
 
-/* Columns 2 and 3 start offset upward for a staggered look */
 .hero__scroll-col--2 {
   margin-top: -13.75rem;
 }
@@ -226,8 +220,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Vertical scroll keyframes — translate -50% pairs with the duplicated
-   image set in the markup to produce a seamless infinite loop.
+   Vertical scroll keyframes
    -------------------------------------------------------------------------- */
 @keyframes scrollUp {
   0% {
@@ -437,7 +430,6 @@
   .hero {
     min-height: auto;
     padding-bottom: 4.5rem;
-    /* overflow visible so the event pill can float onto the white area below */
     overflow: visible;
   }
 
@@ -465,10 +457,9 @@
     padding-block: var(--space-8) 0;
     gap: var(--space-8);
     position: relative;
-    z-index: 2;                          /* above the bottom curve (z-index: 1) */
+    z-index: 2;
   }
 
-  /* Mobile stacking order (matches Figma): images → heading/pill → form */
   .hero__scroll-gallery {
     grid-column: 1;
     grid-row: 1;
@@ -497,7 +488,6 @@
     justify-self: stretch;
   }
 
-  /* All columns start at the same top — consistent fade on all 3 */
   .hero__scroll-col--1,
   .hero__scroll-col--3 {
     margin-top: 0;
@@ -509,7 +499,6 @@
     margin-top: 0;
   }
 
-  /* Fluid capsule keeps the Figma 138:221 ratio and fits 3 across any phone */
   .hero__scroll-col,
   .hero__scroll-item {
     width: clamp(5.5rem, 28vw, 8.625rem);
@@ -528,10 +517,9 @@
 
   .hero__sub-heading {
     font-size: 0.875rem;
-    margin-bottom: 0; /* event badge is position:absolute — no space needed below */
+    margin-bottom: 0;
   }
 
-  /* Float the pill onto the white area below the bottom curve */
   .hero__event-badge {
     position: absolute;
     bottom: -140px;
@@ -561,7 +549,6 @@
 }
 
 @media (max-width: 480px) {
-  /* Capsule size is handled by clamp() above — only tighten the pill here */
   .hero__event-venue,
   .hero__event-date {
     padding: var(--space-2) var(--space-3);

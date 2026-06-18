@@ -18,7 +18,6 @@
   transition: background-color var(--transition-base),
     border-color var(--transition-base),
     box-shadow var(--transition-base);
-  /* visible so the oversized logo can float below the bar */
   overflow: visible;
 }
 
@@ -31,9 +30,6 @@
   height: 6.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   Logo — floats below the bar; the box only reserves horizontal space
-   -------------------------------------------------------------------------- */
 .navbar__logo {
   display: flex;
   align-items: center;
@@ -51,7 +47,7 @@
   top: 8px;
   left: 0;
   width: 200px;
-  height: 160px;                        /* taller than the bar — overflows downward */
+  height: 160px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -59,7 +55,7 @@
   transition: all var(--transition-base);
 }
 
-/* Logo text (currently unused — kept for potential re-use) */
+
 .navbar__logo-text {
   display: flex;
   flex-direction: column;
@@ -81,10 +77,6 @@
   text-transform: uppercase;
 }
 
-/* --------------------------------------------------------------------------
-   CTA Button — two-tone split chip: dark arrow chip + light text label.
-   On click/hover the dark underlay (::before) wipes across to fill it.
-   -------------------------------------------------------------------------- */
 .navbar__cta {
   display: inline-flex;
   align-items: stretch;
@@ -104,7 +96,6 @@
   z-index: 10;
 }
 
-/* Wipe underlay — starts covering just the left chip, expands to full width */
 .navbar__cta::before {
   content: "";
   position: absolute;
@@ -122,7 +113,7 @@
   align-items: center;
   justify-content: center;
   width: 60px;
-  background-color: transparent;        /* background comes from the ::before underlay */
+  background-color: transparent;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -158,7 +149,6 @@
   transform: translateY(-1px);
 }
 
-/* Click / active: underlay wipes full width, label turns white, arrow rotates */
 .navbar__cta.is-clicked::before,
 .navbar__cta:active::before {
   width: 100%;
@@ -174,7 +164,6 @@
   transform: rotate(45deg);
 }
 
-/* Submit variant — reversed colors for the dark form background */
 .navbar__cta--submit {
   border-color: var(--color-white);
   background-color: transparent;
@@ -230,7 +219,6 @@
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
-/* Open state: bars cross into an X */
 .navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -289,7 +277,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Scrolled State — dark navy navbar, shrunken logo, solid white CTA
+   Scrolled State
    -------------------------------------------------------------------------- */
 .navbar--scrolled {
   background-color: #000E38;
@@ -346,7 +334,6 @@
   height: 100%;
 }
 
-/* Right arrow appended via pseudo-element */
 .navbar--scrolled .navbar__cta-label::after {
   content: " →";
   font-size: 18px;
@@ -373,7 +360,6 @@
    Responsive — Mobile Nav
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Shorter bar + smaller logo so it doesn't dwarf the phone view */
   .navbar__inner {
     height: 4.75rem;
   }

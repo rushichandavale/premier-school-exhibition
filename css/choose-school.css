@@ -15,7 +15,7 @@
 }
 
 .choose-school__title {
-  font-family: 'Archivo', sans-serif;  /* Museo Sans 700 substitute */
+  font-family: 'Archivo', sans-serif;
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.5;
@@ -64,7 +64,6 @@
   object-fit: cover;
 }
 
-/* Always-on dark gradient for text readability over the photo */
 .school-card__overlay {
   position: absolute;
   inset: 0;
@@ -86,7 +85,7 @@
 }
 
 .school-card__title {
-  font-family: 'Archivo', sans-serif;  /* Museo Sans 700 substitute */
+  font-family: 'Archivo', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
@@ -107,12 +106,10 @@
   overflow: hidden;
 }
 
-/* Slider markup — hidden on desktop, shown below the grid breakpoint */
 .choose-school__slider {
   display: none;
 }
 
-/* Pagination dots — hidden on desktop, shown with the mobile slider */
 .choose-school__dots {
   display: none;
 }
@@ -157,7 +154,6 @@
   }
 }
 
-/* Mobile: swap the grid for a horizontal drag-to-scroll slider */
 @media (max-width: 640px) {
   .choose-school__grid {
     display: none;
@@ -192,7 +188,6 @@
     width: max-content;
   }
 
-  /* Definite-width basis so the track overflows and scrolls; ~1 card + peek */
   .choose-school__slider .school-card {
     flex: 0 0 85vw;
     max-width: 419px;
@@ -200,13 +195,11 @@
     scroll-snap-align: start;
   }
 
-  /* Stop native image-drag from hijacking the swipe */
   .choose-school__slider img {
     -webkit-user-drag: none;
     user-select: none;
   }
 
-  /* Pagination dots */
   .choose-school__dots {
     display: flex;
     justify-content: center;

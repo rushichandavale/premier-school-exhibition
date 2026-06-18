@@ -11,7 +11,7 @@
   padding-block: 1.09rem;
 }
 
-/* Shared gradient text fill used across all stat text */
+
 .stats__label-pre,
 .stats__number,
 .stats__number-sub,
@@ -39,7 +39,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Wreath wrapper — reward images flanking the stat body
+   Wreath wrapper
    -------------------------------------------------------------------------- */
 .stats__wreath {
   display: flex;
@@ -57,7 +57,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Stat Body — label-pre + number + label stacked vertically
+   Stat Body
    -------------------------------------------------------------------------- */
 .stats__body {
   display: flex;
@@ -121,7 +121,7 @@
 
 @media (max-width: 768px) {
   .stats {
-    padding-top: 5.5rem;                 /* clearance for the floating hero pill */
+    padding-top: 5.5rem;
   }
 
   .stats__grid {

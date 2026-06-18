@@ -19,7 +19,6 @@
   let moved = false;
 
   slider.addEventListener('pointerdown', function (e) {
-    /* Let touch/pen use the browser's native momentum scrolling */
     if (e.pointerType !== 'mouse') return;
     isDown = true;
     moved = false;
@@ -46,8 +45,6 @@
   slider.addEventListener('pointerup', endDrag);
   slider.addEventListener('pointercancel', endDrag);
 
-  /* Swallow the click fired at the end of a drag so a card isn't
-     accidentally activated after a swipe. */
   slider.addEventListener('click', function (e) {
     if (moved) {
       e.preventDefault();
@@ -55,9 +52,7 @@
     }
   }, true);
 
-  /* ── Pagination dots ──────────────────────────────────────────────────
-     Sync the active dot with the scroll position and let dots jump to a
-     card. Cards live in the slider track; the dots sit below the slider. */
+  /* ── Pagination dots ────────────────────────────────────────────────── */
   const dots  = Array.prototype.slice.call(
     document.querySelectorAll('#school-dots .choose-school__dot')
   );
@@ -67,7 +62,6 @@
     : [];
 
   if (dots.length && cards.length) {
-    /* Which card is nearest the left edge of the slider's viewport */
     function activeIndex() {
       const base = slider.getBoundingClientRect().left;
       const pad  = parseFloat(getComputedStyle(slider).paddingLeft) || 0;
@@ -88,7 +82,6 @@
       });
     }
 
-    /* Throttle scroll updates with rAF */
     let ticking = false;
     slider.addEventListener('scroll', function () {
       if (ticking) return;
@@ -99,7 +92,6 @@
       });
     }, { passive: true });
 
-    /* Click / keyboard-activate a dot to scroll to its card */
     dots.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
         cards[i].scrollIntoView({
@@ -111,7 +103,6 @@
       });
     });
 
-    /* Sync once on load */
     setActiveDot(activeIndex());
   }
 

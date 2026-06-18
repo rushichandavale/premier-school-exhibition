@@ -9,7 +9,6 @@
 
 @media (max-width: 768px) {
 
-  /* Sticky CTA Bar */
   .mobile-cta-bar {
     position: fixed;
     left: 0;
@@ -26,7 +25,6 @@
     overflow: hidden;
   }
 
-  /* Common styles */
   .mobile-cta-bar__register,
   .mobile-cta-bar__stat {
     min-width: 0;
@@ -43,7 +41,6 @@
     overflow: hidden;
   }
 
-  /* Left Section */
   .mobile-cta-bar__register {
     flex: 0 0 40%;
     background: linear-gradient(90deg, #3F186A 0%, #000E38 100%);
@@ -57,7 +54,6 @@
     filter: brightness(1.15);
   }
 
-  /* Right Section */
   .mobile-cta-bar__stat {
     flex: 0 0 60%;
     background: linear-gradient(90deg,
@@ -84,12 +80,10 @@
     word-break: break-word;
   }
 
-  /* Prevent content from being hidden */
   body {
     padding-bottom: calc(clamp(3.5rem, 13vw, 4.25rem) + env(safe-area-inset-bottom, 0) + 0.75rem);
   }
 
-  /* Hide inline hero form on mobile */
   .hero__form-panel {
     display: none;
   }

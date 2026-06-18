@@ -26,14 +26,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   Scroller — clips the overflowing tracks and applies edge fade masks
+   Scroller
    -------------------------------------------------------------------------- */
 .schools-marquee__scroller {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   overflow: hidden;
-  /* Soft fade on both horizontal edges */
+
   -webkit-mask-image: linear-gradient(to right,
       transparent 0%, black 6%, black 94%, transparent 100%);
   mask-image: linear-gradient(to right,
@@ -47,7 +47,6 @@
 
 /* --------------------------------------------------------------------------
    Rows + animated tracks
-   Each track holds the logo set twice; translateX(-50%) loops seamlessly.
    -------------------------------------------------------------------------- */
 .schools-marquee__row {
   overflow: hidden;
@@ -69,7 +68,7 @@
   animation: schools-sling-right 40s linear infinite;
 }
 
-/* Pause both rows when the user hovers or focuses anywhere in the scroller */
+
 .schools-marquee__scroller:hover .schools-marquee__track,
 .schools-marquee__scroller:focus-within .schools-marquee__track {
   animation-play-state: paused;
@@ -121,7 +120,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Responsive — smaller logo cards on phones (animation logic is unchanged)
+   Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .schools-marquee__track {
@@ -140,7 +139,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Reduced Motion — stop the sling, show the first (announced) logo set
+   Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .schools-marquee__track {
@@ -148,7 +147,7 @@
     transform: none;
   }
 
-  /* Allow the static row to scroll manually instead */
+
   .schools-marquee__row {
     overflow-x: auto;
     scrollbar-width: none;

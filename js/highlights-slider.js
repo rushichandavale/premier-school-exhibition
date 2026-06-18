@@ -72,11 +72,10 @@
     if (!isMouseDown) return;
     e.preventDefault();
     const x    = e.pageX - sliderEl.offsetLeft;
-    const walk = (x - startX) * 1.2; // drag speed multiplier
+    const walk = (x - startX) * 1.2;
     track.scrollLeft = scrollStart - walk;
   });
 
-  /* Prevent click-through after drag */
   sliderEl.addEventListener('click', function (e) {
     if (Math.abs(track.scrollLeft - scrollStart) > 5) {
       e.preventDefault();

@@ -6,12 +6,11 @@
 .highlights {
   background: var(--bg-hero);
   padding-top: var(--space-20);
-  padding-bottom: 120px;                 /* room for the wave and controls */
+  padding-bottom: 120px;
   overflow: hidden;
   position: relative;
 }
 
-/* Deep U-shaped white wave that sits at the bottom */
 .highlights__wave {
   position: absolute;
   bottom: -1px;
@@ -40,7 +39,7 @@
 }
 
 .highlights__title {
-  font-family: 'Archivo', sans-serif;    /* web substitute for Museo Sans 700 */
+  font-family: 'Archivo', sans-serif;
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.5;
@@ -58,7 +57,6 @@
   z-index: var(--z-raised);
   cursor: grab;
   user-select: none;
-  /* Break out of the container to span full viewport width */
   width: 100vw;
   margin-left: calc(50% - 50vw);
   padding-inline: 0;
@@ -76,7 +74,7 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-inline: 6.25rem;               /* ~100px left offset per Figma */
+  padding-inline: 6.25rem;
   padding-bottom: var(--space-4);
 }
 
@@ -146,9 +144,6 @@
   flex: 1;
 }
 
-/* --------------------------------------------------------------------------
-   Slider Controls — sitting above the U-wave
-   -------------------------------------------------------------------------- */
 .highlights__controls {
   display: flex;
   align-items: center;
@@ -194,13 +189,12 @@
 @media (max-width: 768px) {
   .highlights {
     padding-top: var(--space-12);
-    padding-bottom: 80px;           /* reduced to match shorter wave */
+    padding-bottom: 80px;
     overflow-x: hidden;
   }
 
-  /* Flatten the U-wave on mobile — reduce height so curve is less deep */
   .highlights__wave {
-    height: 80px;                   /* was 150px on desktop — shallower curve on mobile */
+    height: 80px;
   }
 
   .highlights__title {
@@ -215,7 +209,6 @@
     display: none;
   }
 
-  /* Reset the full-viewport-width trick on mobile — just fill the container */
   .highlights__slider {
     width: 100%;
     margin-left: 0;
@@ -237,12 +230,10 @@
     gap: 0.75rem;
   }
 
-  /* Show only the first 4 cards on mobile */
   .highlight-card:nth-child(n+5) {
     display: none;
   }
 
-  /* Fade the bottom of the lower two cards so they blend into the background */
   .highlight-card:nth-child(3)::before,
   .highlight-card:nth-child(4)::before {
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 95%);

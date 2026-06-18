@@ -40,25 +40,20 @@
 
   /* ── Core: Go to slide ─────────────────────────────────────────────── */
   function goTo(index) {
-    // Clamp and wrap
     current = ((index % total) + total) % total;
 
-    /* Translate track */
     track.style.transform = `translateX(-${current * 100}%)`;
 
-    /* Update dots */
     dots.forEach(function (dot, i) {
       const isActive = i === current;
       dot.classList.toggle('hero__dot--active', isActive);
       dot.setAttribute('aria-selected', String(isActive));
     });
 
-    /* Update ARIA on slides */
     slides.forEach(function (slide, i) {
       slide.setAttribute('aria-hidden', String(i !== current));
     });
 
-    /* Announce to screen readers via aria-live */
     slider.setAttribute('aria-label',
       'Hero slide ' + (current + 1) + ' of ' + total
     );
@@ -66,7 +61,7 @@
 
   /* ── Auto-play ─────────────────────────────────────────────────────── */
   function startAutoPlay() {
-    if (prefersReducedMotion) return; // never auto-play for reduced-motion
+    if (prefersReducedMotion) return;
     stopAutoPlay();
     autoPlayTimer = setInterval(function () {
       goTo(current + 1);
@@ -95,7 +90,6 @@
     });
   }
 
-  /* Vertical axis buttons mirror horizontal behaviour */
   if (upBtn) {
     upBtn.addEventListener('click', function () {
       goTo(current - 1);
@@ -110,7 +104,6 @@
     });
   }
 
-  /* Dot navigation */
   dots.forEach(function (dot) {
     dot.addEventListener('click', function () {
       const target = Number(dot.dataset.slide);
@@ -142,7 +135,6 @@
     }
   });
 
-  /* Make slider focusable for keyboard */
   slider.setAttribute('tabindex', '0');
 
   /* ── Pause on hover / focus ────────────────────────────────────────── */
@@ -169,14 +161,12 @@
     const SWIPE_THRESHOLD = 50;
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      /* Horizontal swipe */
       if (deltaX < -SWIPE_THRESHOLD) {
         goTo(current + 1);
       } else if (deltaX > SWIPE_THRESHOLD) {
         goTo(current - 1);
       }
     } else {
-      /* Vertical swipe */
       if (deltaY < -SWIPE_THRESHOLD) {
         goTo(current + 1);
       } else if (deltaY > SWIPE_THRESHOLD) {
@@ -190,7 +180,7 @@
   /* ── Mouse wheel (vertical scroll) on desktop ─────────────────────── */
   let wheelDebounce = null;
   slider.addEventListener('wheel', function (e) {
-    if (Math.abs(e.deltaY) < 30) return; // ignore tiny nudges
+    if (Math.abs(e.deltaY) < 30) return;
     e.preventDefault();
     clearTimeout(wheelDebounce);
     wheelDebounce = setTimeout(function () {

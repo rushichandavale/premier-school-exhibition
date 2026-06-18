@@ -50,13 +50,11 @@
   <header class="navbar" role="banner">
     <div class="container navbar__inner">
 
-      <!-- Logo -->
       <a href="/" class="navbar__logo" aria-label="Premier Schools Exhibition — Home">
         <img src="assets/images/logo.png" alt="Premier Schools Exhibition logo" class="navbar__logo-img" width="56"
           height="56" />
       </a>
 
-      <!-- Navigation -->
       <nav class="navbar__nav" id="navbar-nav" role="navigation" aria-label="Main navigation">
         <a class="navbar__cta" href="#" id="nav-register-btn" aria-label="Register Now for the exhibition">
           <span class="navbar__cta-chip" aria-hidden="true">
@@ -81,13 +79,11 @@
          SECTION 1: HERO
          ================================================================= -->
     <section class="hero" aria-label="Hero — Discover Premier Schools Exhibition" id="hero">
-      <!-- Background glows -->
       <div class="hero__bg-glow hero__bg-glow--1" aria-hidden="true"></div>
       <div class="hero__bg-glow hero__bg-glow--2" aria-hidden="true"></div>
 
       <div class="hero__inner container">
 
-        <!-- Left: Content -->
         <div class="hero__content">
           <h1 class="hero__heading">
             <span class="hero__heading-white">Discover Gurugram's</span><br>
@@ -108,10 +104,8 @@
           </div>
         </div>
 
-        <!-- Center: Infinite Vertical Scrolling Images (3 columns × 12 images) -->
         <div class="hero__scroll-gallery" aria-hidden="true" role="presentation">
 
-          <!-- Column 1 — scrolls up -->
           <div class="hero__scroll-col hero__scroll-col--1">
             <div class="hero__scroll-track hero__scroll-track--up">
               <div class="hero__scroll-item"><img src="assets/images/hero-1.png" alt="" class="hero__scroll-img"
@@ -122,7 +116,6 @@
                   loading="eager" /></div>
               <div class="hero__scroll-item"><img src="assets/images/hero-10.png" alt="" class="hero__scroll-img"
                   loading="lazy" /></div>
-              <!-- Duplicate for seamless loop -->
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-1.png" alt=""
                   class="hero__scroll-img" loading="lazy" /></div>
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-4.png" alt=""
@@ -134,7 +127,6 @@
             </div>
           </div>
 
-          <!-- Column 2 — scrolls up (slightly offset) -->
           <div class="hero__scroll-col hero__scroll-col--2">
             <div class="hero__scroll-track hero__scroll-track--up-offset">
               <div class="hero__scroll-item"><img src="assets/images/hero-2.png" alt="" class="hero__scroll-img"
@@ -145,7 +137,6 @@
                   loading="eager" /></div>
               <div class="hero__scroll-item"><img src="assets/images/hero-11.png" alt="" class="hero__scroll-img"
                   loading="lazy" /></div>
-              <!-- Duplicate for seamless loop -->
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-2.png" alt=""
                   class="hero__scroll-img" loading="lazy" /></div>
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-5.png" alt=""
@@ -157,7 +148,6 @@
             </div>
           </div>
 
-          <!-- Column 3 — scrolls up (different speed) -->
           <div class="hero__scroll-col hero__scroll-col--3">
             <div class="hero__scroll-track hero__scroll-track--up-slow">
               <div class="hero__scroll-item"><img src="assets/images/hero-3.png" alt="" class="hero__scroll-img"
@@ -168,7 +158,6 @@
                   loading="eager" /></div>
               <div class="hero__scroll-item"><img src="assets/images/hero-12.png" alt="" class="hero__scroll-img"
                   loading="lazy" /></div>
-              <!-- Duplicate for seamless loop -->
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-3.png" alt=""
                   class="hero__scroll-img" loading="lazy" /></div>
               <div class="hero__scroll-item" aria-hidden="true"><img src="assets/images/hero-6.png" alt=""
@@ -182,7 +171,6 @@
 
         </div>
 
-        <!-- Right: Enquiry Form -->
         <div class="hero__form-panel" id="enquire">
           <div class="hero__form-card">
             <h2 class="hero__form-title">Enquire Now</h2>
@@ -223,7 +211,6 @@
 
       </div>
 
-      <!-- Wave/curve at the bottom of the hero section for mobile view -->
       <div class="hero__wave" aria-hidden="true">
         <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,150 Q720,0 1440,150 L1440,150 L0,150 Z" fill="white" />
@@ -239,7 +226,6 @@
       <div class="container">
         <div class="stats__grid">
 
-          <!-- Stat 1 -->
           <div class="stats__item">
             <div class="stats__wreath">
               <img src="assets/images/reward-1.png" alt="" class="stats__wreath-img stats__wreath-img--left"
@@ -254,7 +240,6 @@
             </div>
           </div>
 
-          <!-- Stat 2 -->
           <div class="stats__item">
             <div class="stats__wreath">
               <img src="assets/images/reward-1.png" alt="" class="stats__wreath-img stats__wreath-img--left"
@@ -269,7 +254,6 @@
             </div>
           </div>
 
-          <!-- Stat 3 -->
           <div class="stats__item">
             <div class="stats__wreath">
               <img src="assets/images/reward-1.png" alt="" class="stats__wreath-img stats__wreath-img--left"
@@ -283,7 +267,6 @@
             </div>
           </div>
 
-          <!-- Stat 4 -->
           <div class="stats__item">
             <div class="stats__wreath">
               <img src="assets/images/reward-1.png" alt="" class="stats__wreath-img stats__wreath-img--left"
@@ -309,16 +292,11 @@
         <h2 class="schools-marquee__title">Participating Schools</h2>
       </div>
 
-      <!-- Two continuously-slinging rows: Row 1 flows left→right's source (leftward),
-           Row 2 flows the opposite way. Each track holds the logos twice so the
-           translateX(-50%) loop is seamless. Pauses on hover/focus. -->
       <div class="schools-marquee__scroller" id="schools-scroller" tabindex="0" role="group"
         aria-label="Participating school logos, continuously scrolling. Hover or focus to pause.">
 
-        <!-- Row 1 — slings leftward -->
         <div class="schools-marquee__row">
           <div class="schools-marquee__track schools-marquee__track--left">
-            <!-- Set A (announced) -->
             <div class="schools-marquee__item"><img src="assets/images/school1.png" alt="School 1"
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item"><img src="assets/images/school2.png" alt="School 2"
@@ -331,7 +309,6 @@
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item"><img src="assets/images/school6.png" alt="School 6"
                 class="schools-marquee__logo" loading="lazy" /></div>
-            <!-- Set B (duplicate, hidden from AT) -->
             <div class="schools-marquee__item" aria-hidden="true"><img src="assets/images/school1.png" alt=""
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item" aria-hidden="true"><img src="assets/images/school2.png" alt=""
@@ -347,10 +324,8 @@
           </div>
         </div>
 
-        <!-- Row 2 — slings rightward (offset order so the lines don't mirror) -->
         <div class="schools-marquee__row">
           <div class="schools-marquee__track schools-marquee__track--right">
-            <!-- Set A (announced) -->
             <div class="schools-marquee__item"><img src="assets/images/school4.png" alt="School 4"
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item"><img src="assets/images/school5.png" alt="School 5"
@@ -363,7 +338,6 @@
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item"><img src="assets/images/school3.png" alt="School 3"
                 class="schools-marquee__logo" loading="lazy" /></div>
-            <!-- Set B (duplicate, hidden from AT) -->
             <div class="schools-marquee__item" aria-hidden="true"><img src="assets/images/school4.png" alt=""
                 class="schools-marquee__logo" loading="lazy" /></div>
             <div class="schools-marquee__item" aria-hidden="true"><img src="assets/images/school5.png" alt=""
@@ -379,7 +353,7 @@
           </div>
         </div>
 
-      </div><!-- /.schools-marquee__scroller -->
+      </div>
     </section>
 
     <!-- =================================================================
@@ -392,7 +366,6 @@
         </header>
       </div>
 
-      <!-- Desktop: 4-column grid (full-width, no container) -->
       <div class="choose-school__grid" role="list" aria-label="School categories">
 
         <article class="school-card" role="listitem" tabindex="0" aria-label="Pre-Schools and Early Learning Centres">
@@ -437,9 +410,8 @@
           </div>
         </article>
 
-      </div><!-- /.choose-school__grid -->
+      </div>
 
-      <!-- Mobile: Swipeable slider -->
       <div class="choose-school__slider" id="school-slider" aria-label="School categories slider"
         aria-roledescription="carousel">
         <div class="choose-school__slider-track" id="school-slider-track" aria-live="polite">
@@ -487,10 +459,8 @@
             </div>
           </article>
 
-        </div><!-- /.choose-school__slider-track -->
-      </div><!-- /.choose-school__slider -->
-
-      <!-- Pagination dots (mobile slider only) -->
+        </div>
+      </div>
       <div class="choose-school__dots" id="school-dots" role="tablist" aria-label="School category slides">
         <button class="choose-school__dot choose-school__dot--active" type="button" role="tab" data-index="0"
           aria-selected="true" aria-label="Go to slide 1: Pre-Schools &amp; Early Learning Centres"></button>
@@ -530,7 +500,6 @@
         </a>
       </div>
 
-      <!-- Mobile-only image: stacks below the content (content on top, image at bottom) -->
       <img src="assets/images/pre-school-m.png" alt="Parents meeting school representatives at the exhibition"
         class="preschedule__img-mobile" loading="lazy" />
     </section>
@@ -549,7 +518,6 @@
           aria-label="Exhibition highlights" tabindex="0">
           <div class="highlights__track" id="highlights-track" aria-live="polite" aria-atomic="false">
 
-            <!-- Card 1 -->
             <article class="highlight-card" aria-roledescription="slide"
               aria-label="Interact Directly with School Heads">
               <div class="highlight-card__icon-wrap">
@@ -560,7 +528,6 @@
                 principals and admission counselors.</p>
             </article>
 
-            <!-- Card 2 -->
             <article class="highlight-card" aria-roledescription="slide" aria-label="Compare Curriculum and Pedagogy">
               <div class="highlight-card__icon-wrap">
                 <img src="assets/images/exhibition-icon-2.png" alt="" class="highlight-card__icon" aria-hidden="true" />
@@ -570,7 +537,6 @@
                 &amp; more — all in one place.</p>
             </article>
 
-            <!-- Card 3 -->
             <article class="highlight-card" aria-roledescription="slide"
               aria-label="Get Exclusive Fee Structures and Offers">
               <div class="highlight-card__icon-wrap">
@@ -581,7 +547,6 @@
                 scholarship offers only at PSE.</p>
             </article>
 
-            <!-- Card 4 -->
             <article class="highlight-card" aria-roledescription="slide" aria-label="Explore Schools Offerings">
               <div class="highlight-card__icon-wrap">
                 <img src="assets/images/exhibition-icon-4.png" alt="" class="highlight-card__icon" aria-hidden="true" />
@@ -591,7 +556,6 @@
                 culture firsthand.</p>
             </article>
 
-            <!-- Card 5 -->
             <article class="highlight-card" aria-roledescription="slide" aria-label="On-the-Spot Admission Counselling">
               <div class="highlight-card__icon-wrap">
                 <img src="assets/images/exhibition-icon-5.png" alt="" class="highlight-card__icon" aria-hidden="true" />
@@ -601,10 +565,8 @@
                 deadlines from school advisors.</p>
             </article>
 
-          </div><!-- /#highlights-track -->
-        </div><!-- /#highlights-slider -->
-
-        <!-- Arrow Controls -->
+          </div>
+        </div>
         <div class="highlights__controls" role="group" aria-label="Highlights slider controls">
           <button class="highlights__nav-btn" id="highlights-prev" aria-label="Previous highlight">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -622,7 +584,6 @@
 
       </div>
 
-      <!-- Deep U-shaped white wave: starts/ends near first/last card, dips deep in the center -->
       <div class="highlights__wave" aria-hidden="true">
         <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,0 Q720,150 1440,0 L1440,150 L0,150 Z" fill="white" />
@@ -641,7 +602,6 @@
     <div class="container">
       <div class="footer__inner">
 
-        <!-- Brand Logo -->
         <div class="footer__brand">
           <a href="/" class="footer__logo" aria-label="Premier Schools Exhibition — Home">
             <img src="assets/images/logo.png" alt="Premier Schools Exhibition" class="footer__logo-img" width="108"
@@ -649,7 +609,6 @@
           </a>
         </div>
 
-        <!-- Corporate Office -->
         <address class="footer__block" aria-label="Corporate office address">
           <div class="footer__icon-box">
             <img src="assets/images/location.png" alt="" class="footer__icon" aria-hidden="true" />
@@ -664,7 +623,6 @@
           </div>
         </address>
 
-        <!-- Ahmedabad Office -->
         <address class="footer__block" aria-label="Ahmedabad office address">
           <div class="footer__icon-box">
             <img src="assets/images/location.png" alt="" class="footer__icon" aria-hidden="true" />
@@ -679,7 +637,6 @@
           </div>
         </address>
 
-        <!-- Contact -->
         <div class="footer__block" aria-label="Contact numbers">
           <div class="footer__icon-box">
             <img src="assets/images/phone.png" alt="" class="footer__icon" aria-hidden="true" />
@@ -693,7 +650,6 @@
           </div>
         </div>
 
-        <!-- Follow us on -->
         <div class="footer__social-block">
           <h3 class="footer__social-label">Follow us on</h3>
           <div class="footer__social-icons">
@@ -715,7 +671,6 @@
       </div>
     </div>
 
-    <!-- Mobile-only decorative image (direct child of footer — no container padding) -->
     <img
       src="assets/images/footer.png"
       alt=""
@@ -724,7 +679,6 @@
       loading="lazy"
     />
 
-    <!-- Bottom bar -->
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
         <p class="footer__copyright">
