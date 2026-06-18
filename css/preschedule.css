@@ -183,9 +183,9 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .preschedule {
-    height: 480px;
+    min-height: 28rem; /* ~448px */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -196,12 +196,8 @@
   }
 
   .preschedule__overlay {
-    display: block;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(237, 232, 255, 0.95) 0%, rgba(237, 232, 255, 0.8) 100%);
-    z-index: 1;
-    pointer-events: none;
+    display: none;
+    /* remove the heavy overlay so the bg image shows clearly */
   }
 
   .preschedule__content {
@@ -211,8 +207,10 @@
     max-width: 100%;
     padding: var(--space-8) var(--container-pad);
     background-color: transparent;
-    align-items: flex-start;        /* align children to the left */
-    text-align: left;               /* left-align text */
+    align-items: flex-start;
+    /* align children to the left */
+    text-align: left;
+    /* left-align text */
   }
 
   .preschedule__btn {
@@ -220,13 +218,15 @@
   }
 
   .preschedule__btn-icon-wrap {
-    width: 2.5rem;          /* shrink icon chip from 3.125rem → 2.5rem */
+    width: 2.5rem;
+    /* shrink icon chip from 3.125rem → 2.5rem */
     height: 2.5rem;
   }
 
   .preschedule__btn-label {
     padding: 0 var(--space-4);
-    line-height: 2.5rem;    /* match new chip height */
+    line-height: 2.5rem;
+    /* match new chip height */
     font-size: 0.75rem;
   }
 
