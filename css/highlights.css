@@ -194,8 +194,13 @@
 @media (max-width: 768px) {
   .highlights {
     padding-top: var(--space-12);
-    padding-bottom: 130px;
-    overflow-x: hidden;             /* prevent 100vw trick from leaking */
+    padding-bottom: 80px;           /* reduced to match shorter wave */
+    overflow-x: hidden;
+  }
+
+  /* Flatten the U-wave on mobile — reduce height so curve is less deep */
+  .highlights__wave {
+    height: 80px;                   /* was 150px on desktop — shallower curve on mobile */
   }
 
   .highlights__title {
@@ -222,7 +227,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     overflow-x: visible;
-    padding-inline: var(--container-pad);
   }
 
   .highlight-card {

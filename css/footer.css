@@ -197,6 +197,11 @@
   display: none;
 }
 
+/* "Premier Schools Exhibition" stays inline on desktop */
+.footer__copyright-brand {
+  display: inline;
+}
+
 /* --------------------------------------------------------------------------
    Responsive — Mobile: stack columns, hide office/contact blocks
    -------------------------------------------------------------------------- */
@@ -207,9 +212,12 @@
     background: linear-gradient(360deg, #000E38 0%, #3F186A 100%);
     overflow: hidden;
     min-height: 37.625rem;
-    /* ~602px from Figma — min-height so content can still grow */
     justify-content: flex-start;
-    /* override desktop space-between so image sits flush at bottom */
+  }
+
+  /* "Premier Schools Exhibition" always on its own line on mobile */
+  .footer__copyright-brand {
+    display: block;
   }
 
   /* Container stays above the image and absorbs all extra vertical space */
