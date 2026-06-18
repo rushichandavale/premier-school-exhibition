@@ -497,10 +497,12 @@
     justify-self: stretch;
   }
 
-  /* Symmetric stagger — middle capsule highest, outer two ~50px lower (Figma) */
+  /* All columns start at the same top — consistent fade on all 3 */
   .hero__scroll-col--1,
   .hero__scroll-col--3 {
-    margin-top: 3.125rem;
+    margin-top: 0;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 100%);
   }
 
   .hero__scroll-col--2 {
@@ -526,7 +528,7 @@
 
   .hero__sub-heading {
     font-size: 0.875rem;
-    margin-bottom: var(--space-6);
+    margin-bottom: 0; /* event badge is position:absolute — no space needed below */
   }
 
   /* Float the pill onto the white area below the bottom curve */

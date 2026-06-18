@@ -19,7 +19,8 @@
 .footer .container {
   max-width: var(--container-max);
   width: 100%;
-  padding-inline: 6.3125rem;             /* 101px gutters per Figma */
+  padding-inline: 6.3125rem;
+  /* 101px gutters per Figma */
   box-sizing: border-box;
 }
 
@@ -87,7 +88,8 @@
 }
 
 .footer__label {
-  font-family: 'Archivo', sans-serif;    /* Museo Sans substitute */
+  font-family: 'Archivo', sans-serif;
+  /* Museo Sans substitute */
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
@@ -121,7 +123,8 @@
 }
 
 .footer__social-label {
-  font-family: 'Archivo', sans-serif;    /* Museo Sans substitute */
+  font-family: 'Archivo', sans-serif;
+  /* Museo Sans substitute */
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
@@ -175,7 +178,8 @@
 }
 
 .footer__copyright {
-  font-family: 'Archivo', sans-serif;    /* Museo Sans substitute */
+  font-family: 'Archivo', sans-serif;
+  /* Museo Sans substitute */
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -188,6 +192,11 @@
   margin: 0;
 }
 
+/* Mobile-only footer image — hidden on desktop */
+.footer__mobile-img {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    Responsive — Mobile: stack columns, hide office/contact blocks
    -------------------------------------------------------------------------- */
@@ -196,10 +205,23 @@
     padding-top: 3.5rem;
     padding-bottom: 0;
     background: linear-gradient(360deg, #000E38 0%, #3F186A 100%);
+    overflow: hidden;
+    min-height: 37.625rem;
+    /* ~602px from Figma — min-height so content can still grow */
+    justify-content: flex-start;
+    /* override desktop space-between so image sits flush at bottom */
   }
 
+  /* Container stays above the image and absorbs all extra vertical space */
   .footer .container {
     padding-inline: var(--space-6);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    /* grow to fill available height — pushes image to the bottom */
+    display: flex;
+    /* make it a flex column so footer__inner can stretch */
+    flex-direction: column;
   }
 
   .footer__inner {
@@ -207,9 +229,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 3.5rem;
-    height: auto;
-    padding-bottom: 3.5rem;
+    gap: 2rem;
+    flex: 1;
+    /* stretch to fill the container height */
+    padding-bottom: 8rem;
+    /* push social block further up from the footer image */
   }
 
   .footer__block {
@@ -222,7 +246,53 @@
     margin-right: 0;
   }
 
+  /* Social block — pushed to bottom of container, sits above the bg image */
   .footer__social-block {
     align-items: flex-start;
+    text-align: left;
+    margin-top: auto;
+    /* push social down to bottom of the flex column */
+  }
+
+  /* "Follow us on" label — Figma: 20px / 600 / 150% line-height */
+  .footer__social-label {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  /* Icons row — Figma: gap 16px, total group 158×42 */
+  .footer__social-icons {
+    gap: 16px;
+  }
+
+  /* Single icon — Figma: 42×42px, border 1px */
+  .footer__social-btn {
+    width: 42px;
+    height: 42px;
+    border-width: 1px;
+    border-radius: 10px;
+  }
+
+  .footer__social-icon-img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Mobile image — direct child of footer, truly full-width */
+  .footer__mobile-img {
+    display: block;
+    width: 100%;
+    /* full footer width — no container padding applies */
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+    vertical-align: bottom;
+    position: relative;
+    z-index: 0;
+    /* sits BEHIND the container/social content */
+    margin-top: -180px;
+    /* pull image up further to stay behind social block */
   }
 }

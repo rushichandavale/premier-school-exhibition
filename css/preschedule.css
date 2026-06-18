@@ -210,12 +210,24 @@
     width: 100%;
     max-width: 100%;
     padding: var(--space-8) var(--container-pad);
-
     background-color: transparent;
+    align-items: flex-start;        /* align children to the left */
+    text-align: left;               /* left-align text */
   }
 
   .preschedule__btn {
     align-self: flex-start;
+  }
+
+  .preschedule__btn-icon-wrap {
+    width: 2.5rem;          /* shrink icon chip from 3.125rem → 2.5rem */
+    height: 2.5rem;
+  }
+
+  .preschedule__btn-label {
+    padding: 0 var(--space-4);
+    line-height: 2.5rem;    /* match new chip height */
+    font-size: 0.75rem;
   }
 
   .preschedule__img-mobile {

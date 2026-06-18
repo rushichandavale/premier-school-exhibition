@@ -113,6 +113,7 @@ html {
   scroll-behavior: smooth;
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;              /* prevent horizontal scroll at root level */
 }
 
 body {

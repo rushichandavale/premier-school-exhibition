@@ -195,6 +195,7 @@
   .highlights {
     padding-top: var(--space-12);
     padding-bottom: 130px;
+    overflow-x: hidden;             /* prevent 100vw trick from leaking */
   }
 
   .highlights__title {
@@ -207,6 +208,13 @@
 
   .highlights__controls {
     display: none;
+  }
+
+  /* Reset the full-viewport-width trick on mobile — just fill the container */
+  .highlights__slider {
+    width: 100%;
+    margin-left: 0;
+    overflow: visible;
   }
 
   .highlights__track {
